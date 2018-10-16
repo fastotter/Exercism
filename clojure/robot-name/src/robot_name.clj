@@ -21,12 +21,12 @@
 (defn robot []
   (let [name (gen-unique-robot-name)]
     (save-name name)
-    (hash-map "name" name)))
+    (atom (hash-map "name" name))))
 
 (defn robot-name [robot]
-  (robot "name"))
+  (@robot "name"))
 
 (defn reset-name [robot]
   (let [name (gen-unique-robot-name)]
     (save-name name)
-    (assoc robot "name" name)))
+    (reset! robot (hash-map "name" name))))
