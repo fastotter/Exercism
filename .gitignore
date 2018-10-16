@@ -15,6 +15,7 @@ pom.xml*
 metadata.json
 clojure/armstrong-numbers/target/
 clojure/beer-song/target/
+clojure/clock/target/
 clojure/collatz-conjecture/target/
 clojure/robot-name/target/
 clojure/hello-world/target/
