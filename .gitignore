@@ -17,6 +17,8 @@ clojure/armstrong-numbers/target/
 clojure/beer-song/target/
 clojure/clock/target/
 clojure/collatz-conjecture/target/
+clojure/meetup/target/
+clojure/phone-number/target/
 clojure/robot-name/target/
 clojure/hello-world/target/
 /.idea
