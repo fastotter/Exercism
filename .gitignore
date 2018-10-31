@@ -21,6 +21,7 @@ clojure/leap/target/
 clojure/meetup/target/
 clojure/phone-number/target/
 clojure/robot-name/target/
+clojure/two-fer/target/
 clojure/hello-world/target/
 /.idea
 /_site
