@@ -23,6 +23,7 @@ clojure/meetup/target/
 clojure/phone-number/target/
 clojure/reverse-string/target/
 clojure/robot-name/target/
+clojure/rna-transcription/target/
 clojure/two-fer/target/
 clojure/hello-world/target/
 /.idea
