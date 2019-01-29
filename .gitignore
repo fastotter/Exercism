@@ -18,6 +18,7 @@ clojure/beer-song/target/
 clojure/bob/target/
 clojure/clock/target/
 clojure/collatz-conjecture/target/
+clojure/isbn-verifier/target/
 clojure/leap/target/
 clojure/meetup/target/
 clojure/phone-number/target/
