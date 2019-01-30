@@ -20,3 +20,9 @@ collection, e.g.,
 (encode "aaabcdde") => "3abc2de"
 (decode "5xy3z") => "xxxxxyzzz"
 ```
+
+### word-count
+- Uses re-seq to create sequence of words from one string.
+- Uses lower-case to change mixed case string to all-lower-case string.
+- Uses a map to count number of objects (in this case strings)
+- Uses loop recur to create the map (^)
