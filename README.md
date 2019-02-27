@@ -25,6 +25,18 @@ collection, e.g.,
 (decode "5xy3z") => "xxxxxyzzz"
 ```
 
+#### say
+Converts number to text, e.g.,
+```
+(number 101000202000)
+;;=> "one hundred one billion two hundred two thousand"
+```
+- Uses ```throw``` to throw an exception when number out of range
+- Uses ```loop recur``` several times
+- Uses ```interleave``` to merge two sequences of strings
+- Uses ```partition``` to group sequence of strings into pairs
+- Uses ```flatten``` to flatten nested pairs of strings into a sequence of strings
+
 #### word-count
 - Uses ```re-seq``` to create sequence of words from one string.
 - Uses ```lower-case``` to change mixed case string to all-lower-case string.
