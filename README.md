@@ -37,6 +37,15 @@ Converts number to text, e.g.,
 - Uses ```partition``` to group sequence of strings into pairs
 - Uses ```flatten``` to flatten nested pairs of strings into a sequence of strings
 
+#### series
+Given a string of digits, output all the contiguous substrings of length n in that string in the order that they appear.
+```
+(slices "marcus" 4)
+;;=> ["marc" "arcu" "rcus"]
+```
+- Uses ```loop recur``` to iterate across the string
+- Uses ```subs``` to get a substring out of the string
+
 #### word-count
 - Uses ```re-seq``` to create sequence of words from one string.
 - Uses ```lower-case``` to change mixed case string to all-lower-case string.
