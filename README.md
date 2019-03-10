@@ -21,6 +21,9 @@ collection, e.g.,
 - Uses ```reduce``` to sum numbers in a collection.
 - Uses ```str/join, str/split and re-pattern``` to remove all '-' characters from a string.
 
+#### raindrops
+- Uses ``` filer zero? rem range``` and ```inc``` to convert a number to its factors (in a series)
+- Uses a map and ```map``` to convert specific numbers in a series to words
 
 #### run-length-encoding
 - Uses ```loop recur``` to transform strings, e.g.,
