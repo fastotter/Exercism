@@ -6,6 +6,10 @@ Just a place to store Exercism programs as I learn Clojure.
 - Uses ```keep``` to filter a sequence to another sequence of items we want to
 keep/isolate
 
+#### fib
+- Uses ```lazy-seq``` to create a lazy sequence of the Fibonacci Sequence.
+- This is NOT an Exercism program.
+
 #### isbn-verifier
 - Uses ```map``` to convert a collection of ISBN digit characters to a collection of integers
 and uses ```map``` to multiple each number in collection to by a number in another
