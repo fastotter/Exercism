@@ -1,5 +1,5 @@
 (ns minesweeper-test
-  (:require [clojure.test :refer [deftest is]]
+  (:require [clojure.test :refer [deftest is run-tests]]
             [clojure.string :refer [join]]
             [minesweeper :refer [draw]]))
 
