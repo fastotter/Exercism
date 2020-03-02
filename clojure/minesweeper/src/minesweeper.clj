@@ -1,4 +1,16 @@
 (ns minesweeper
+  "Given a 2-D minesweeper board with mines (or no mines) update the board with
+  numbers in cells that represent the number of adjacent cells that have mines.
+
+  The implementation uses a vector (a 1-D array) to represent the 2-D board/array.
+  The indexes used to access cells are zero based.
+
+  So a 3x3 minesweeper board would have these indexes.
+
+  [0][1][3]
+  [4][5][6]
+  [7][8][9]"
+
   (:require [clojure.string :as str]
             [util]))
 
@@ -27,8 +39,17 @@
       )))
 
 (defn gen-ati
-  [rows cols]
-  (-> (map #(adjacent-tiles rows cols %) (range (* rows cols)))
+  "Given the dimensions of a two-dimension array calculate the indexes for
+  the adjacent cells for every cell in the 2D array. For each adjacent
+  cell a single integer index is created because this namespace uses a vector
+  (i.e., a 1-D array) to represent the 2-D minesweeper board.
+
+  Example:
+  Input: row-cnt: 2, col-cnt: 2
+  Output: [ [1 2 3] [0 2 3] [0 1 3] [0 1 2] ]
+  "
+  [row-cnt col-cnt]
+  (-> (map #(adjacent-tiles row-cnt col-cnt %) (range (* row-cnt col-cnt)))
       vec))
 
 (def MINE "*")
@@ -52,8 +73,8 @@
                  (inc adj-mine-count)
                  adj-mine-count))))))
 
-(defn add-numbers [{:keys [row-len row-cnt board indexes] :as board-map}]
-  (let [limit (* row-len row-cnt)]
+(defn add-numbers [{:keys [col-cnt row-cnt board indexes] :as board-map}]
+  (let [limit (* col-cnt row-cnt)]
     (loop [idx 0
            brd board]
       (if (= idx limit)
@@ -63,16 +84,16 @@
 
 (defn input [board]
   (let [str (str/split-lines board)
-        row-len (count (first str))
+        col-cnt (count (first str))
         row-cnt (count str)
         brd (vec (replace {" " 0} (to-array (flatten (map #(str/split % #"") str)))))
-        adjacent-indexes (gen-ati row-len row-cnt)]
-    {:row-len row-len :row-cnt row-cnt :board brd :indexes adjacent-indexes}))
+        adjacent-indexes (gen-ati col-cnt row-cnt)]
+    {:col-cnt col-cnt :row-cnt row-cnt :board brd :indexes adjacent-indexes}))
 
-(defn output [{:keys [row-len board]}]
+(defn output [{:keys [col-cnt board]}]
   (if (= board [""])
     ""
-    (let [grouped (partition row-len board)]
+    (let [grouped (partition col-cnt board)]
       (-> (reduce
            (fn [a b] (conj a (vec b) line-separator))
            [] grouped)
@@ -83,7 +104,7 @@
           str/join
           ))))
 
-(defn draw [board] ;; <- arglist goes here
+(defn draw [board]
   (-> board
       input
       add-numbers
