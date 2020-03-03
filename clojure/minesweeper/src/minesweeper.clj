@@ -12,7 +12,7 @@
   [7][8][9]"
 
   (:require [clojure.string :as str]
-            [util]))
+            [util :refer :all]))
 
 (def line-separator (System/getProperty "line.separator"))
 
@@ -93,16 +93,12 @@
 (defn output [{:keys [col-cnt board]}]
   (if (= board [""])
     ""
-    (let [grouped (partition col-cnt board)]
-      (-> (reduce
-           (fn [a b] (conj a (vec b) line-separator))
-           [] grouped)
-          flatten
-          drop-last
-          (#(replace {0 " "} %))
-          vec
-          str/join
-          ))))
+    (->>
+     (partition col-cnt board)
+     (interpose line-separator)
+     flatten
+     (replace {0 " "})
+     str/join)))
 
 (defn draw [board]
   (-> board
